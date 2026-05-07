@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'AiPaiNutaaq';
+  src: url('./assets/AiPaiNutaaq-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-cream: #F3F4E7;
+  --color-cream-dark: #E8E9D8;
+  --color-sage: #B7C195;
+  --color-sage-light: #CDD6B5;
+  --color-sage-dark: #9AAD74;
+  --color-forest: #5B8362;
+  --color-forest-dark: #4A6E50;
+  --color-forest-light: #6E9B76;
+  --color-mauve: #4A3D43;
+  --color-mauve-light: #6B5C63;
+  --color-charcoal: #2A2F2A;
+  --color-charcoal-light: #4A4F4A;
+  --font-syllabics: 'AiPaiNutaaq', 'Pigiarniq', 'Euphemia UCAS', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
