@@ -3,9 +3,9 @@ import { config } from "dotenv";
 
 config();
 
-const SEED_PINS = [
-  "", //4 digit str pins
-];
+const SEED_PINS = process.env.SEED_PINS?.split(",").map((seed) =>
+  parseInt(seed.trim()),
+);
 
 async function main() {
   const sql = neon(process.env.DATABASE_URL);

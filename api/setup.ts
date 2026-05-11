@@ -1,9 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
 
-const SEED_PINS = [
-  // pins
-];
+const SEED_PINS =
+  process.env.SEED_PINS?.split(",").map((seed) => parseInt(seed.trim())) || [];
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
