@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'AiPaiNutaaq';
-  src: url('./assets/AiPaiNutaaq-Regular.otf') format('opentype');
+  font-family: "AiPaiNutaaq";
+  src: url("./assets/AiPaiNutaaq-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --color-cream: #F3F4E7;
-  --color-cream-dark: #E8E9D8;
-  --color-sage: #B7C195;
-  --color-sage-light: #CDD6B5;
-  --color-sage-dark: #9AAD74;
-  --color-forest: #5B8362;
-  --color-forest-dark: #4A6E50;
-  --color-forest-light: #6E9B76;
-  --color-mauve: #4A3D43;
-  --color-mauve-light: #6B5C63;
-  --color-charcoal: #2A2F2A;
-  --color-charcoal-light: #4A4F4A;
-  --font-syllabics: 'AiPaiNutaaq', 'Pigiarniq', 'Euphemia UCAS', sans-serif;
+  --color-cream: #f3f4e7;
+  --color-cream-dark: #e8e9d8;
+  --color-sage: #b7c195;
+  --color-sage-light: #cdd6b5;
+  --color-sage-dark: #9aad74;
+  --color-forest: #5b8362;
+  --color-forest-dark: #4a6e50;
+  --color-forest-light: #6e9b76;
+  --color-mauve: #4a3d43;
+  --color-mauve-light: #6b5c63;
+  --color-charcoal: #2a2f2a;
+  --color-charcoal-light: #4a4f4a;
+  --font-syllabics: "AiPaiNutaaq", "Pigiarniq", "Euphemia UCAS", sans-serif;
 }
 
 body {

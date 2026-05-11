@@ -1,16 +1,16 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { neon } from '@neondatabase/serverless'
+import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { neon } from "@neondatabase/serverless";
 
 const SEED_PINS = [
   // pins
-]
+];
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const sql = neon(process.env.DATABASE_URL!)
+  const sql = neon(process.env.DATABASE_URL!);
 
   await sql`
     CREATE TABLE IF NOT EXISTS speakers (
@@ -19,7 +19,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       name VARCHAR(255),
       created_at TIMESTAMP DEFAULT NOW()
     )
-  `
+  `;
 
   await sql`
     CREATE TABLE IF NOT EXISTS progress (
@@ -30,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       recorded_at TIMESTAMP DEFAULT NOW(),
       UNIQUE(speaker_id, prompt_id)
     )
-  `
+  `;
 
   await sql`
     CREATE TABLE IF NOT EXISTS notes (
@@ -43,21 +43,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       updated_at TIMESTAMP DEFAULT NOW(),
       UNIQUE(speaker_id, prompt_id)
     )
-  `
+  `;
 
-  let seeded = 0
+  let seeded = 0;
   for (const pin of SEED_PINS) {
-    const existing = await sql`SELECT id FROM speakers WHERE pin = ${pin}`
+    const existing = await sql`SELECT id FROM speakers WHERE pin = ${pin}`;
     if (existing.length === 0) {
-      await sql`INSERT INTO speakers (pin) VALUES (${pin})`
-      seeded++
+      await sql`INSERT INTO speakers (pin) VALUES (${pin})`;
+      seeded++;
     }
   }
 
   return res.status(200).json({
-    message: 'Database initialized',
-    tables: ['speakers', 'progress', 'notes'],
+    message: "Database initialized",
+    tables: ["speakers", "progress", "notes"],
     pins_seeded: seeded,
     total_pins: SEED_PINS.length,
-  })
+  });
 }
